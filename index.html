@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smiley Box – Resibo ng Memories</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <main class="card">
+        <header class="card-header">
+          <div class="logo-wrapper">
+            <!-- Replace src with your actual logo file, e.g. logo.png -->
+            <img
+              src="smileylogosquare.jpg"
+              alt="Smiley Box logo"
+              class="logo"
+            />
+          </div>
+          <div class="title-block">
+            <h1>Smiley Box – Resibo ng Memories</h1>
+            <p class="subtitle">Lucena’s First Receipt Photobooth</p>
+          </div>
+        </header>
+
+        <section class="description">
+          <div class="description-inner" data-collapsible>
+            <p>
+              Smiley Box is a one-of-a-kind photobooth experience that turns
+              moments into keepsakes. Using thermal printing, we create a
+              receipt-style photo—simple, nostalgic, and meaningful. Hindi ito
+              ordinaryong resibo; resibo ito ng memories.
+            </p>
+            <p>
+              Each print is a reminder of a moment shared—whether it’s laughter
+              with friends, a special event, or a random day worth remembering.
+              Inspired by everyday receipts we usually forget, Smiley Box
+              transforms them into memories you’ll want to keep.
+            </p>
+            <p>
+              As Lucena’s first receipt photobooth, Smiley Box brings a fresh and
+              creative way to capture memories—instant, minimalist, and full of
+              heart. Because some moments don’t need filters or frames—just a
+              reason to smile.
+            </p>
+            <p class="closing">
+              Keep the smile. Keep the resibo. <span class="emoji">😊</span>
+            </p>
+          </div>
+          <button class="description-toggle" type="button">
+            See more…
+          </button>
+        </section>
+
+        <section class="links">
+          <a
+            class="link-button tiktok"
+            href="https://www.tiktok.com/@smileyboxph"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="label">TikTok</span>
+            <span class="handle">@smileyboxph</span>
+          </a>
+
+          <a
+            class="link-button instagram"
+            href="https://www.instagram.com/smileyboxph"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="label">Instagram</span>
+            <span class="handle">@smileyboxph</span>
+          </a>
+
+          <a
+            class="link-button facebook"
+            href="https://www.facebook.com/smileyboxph"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="label">Facebook</span>
+            <span class="handle">Smiley Box</span>
+          </a>
+        </section>
+
+        <footer class="footer">
+          <p>© <span id="year"></span> Smiley Box. All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile "See more..." toggle for description
+      (function () {
+        const container = document.querySelector(".description");
+        const inner = container?.querySelector(".description-inner");
+        const toggle = container?.querySelector(".description-toggle");
+
+        if (!container || !inner || !toggle) return;
+
+        const mq = window.matchMedia("(max-width: 640px)");
+
+        function applyMode() {
+          if (mq.matches) {
+            container.classList.add("is-collapsible");
+          } else {
+            container.classList.remove("is-collapsible", "is-expanded");
+          }
+        }
+
+        applyMode();
+        mq.addEventListener("change", applyMode);
+
+        toggle.addEventListener("click", () => {
+          const expanded = container.classList.toggle("is-expanded");
+          toggle.textContent = expanded ? "See less" : "See more…";
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+
