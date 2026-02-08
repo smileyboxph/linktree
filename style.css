@@ -1,15 +1,62 @@
+/* ========== Light mode (default) ========== */
 :root {
+  --bg: #f1f5f9;
+  --bg-body: radial-gradient(circle at top, #e2e8f0 0, #f8fafc 50%, #f1f5f9 100%);
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --card-border: 1px solid rgba(15, 23, 42, 0.12);
+  --card-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.98));
+  --accent: #b45309;
+  --accent-soft: rgba(180, 83, 9, 0.12);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-subtle: rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.1);
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --transition-fast: 150ms ease-out;
+  /* Components */
+  --logo-bg: #f8fafc;
+  --logo-shadow: 0 16px 35px rgba(15, 23, 42, 0.15);
+  --description-bg: linear-gradient(135deg, rgba(241, 245, 249, 0.9), rgba(248, 250, 252, 0.95));
+  --description-border: 1px dashed rgba(15, 23, 42, 0.25);
+  --link-bg: rgba(255, 255, 255, 0.95);
+  --link-bg-hover: rgba(248, 250, 252, 0.98);
+  --link-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+  --link-shadow-hover: 0 16px 30px rgba(15, 23, 42, 0.12);
+  --link-border-hover: rgba(15, 23, 42, 0.2);
+  --footer-border: rgba(15, 23, 42, 0.2);
+  --closing-color: #334155;
+  /* Tiktok/Instagram/Facebook keep brand tints; light base */
+  --link-tint-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* ========== Dark mode ========== */
+html[data-theme="dark"] {
   --bg: #050816;
+  --bg-body: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
   --bg-card: rgba(8, 12, 34, 0.9);
+  --card-border: 1px solid var(--border-subtle);
+  --card-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+  --card-gradient: linear-gradient(135deg, rgba(51, 65, 85, 0.3), rgba(15, 23, 42, 0.95)), var(--bg-card);
   --accent: #f6c453;
   --accent-soft: rgba(246, 196, 83, 0.12);
   --text-main: #f9fafb;
   --text-muted: #9ca3af;
   --border-subtle: rgba(148, 163, 184, 0.2);
   --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.85);
-  --radius-xl: 28px;
-  --radius-pill: 999px;
-  --transition-fast: 150ms ease-out;
+  --logo-bg: #020617;
+  --logo-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+  --description-bg: radial-gradient(circle at top left, rgba(236, 252, 203, 0.15), rgba(15, 23, 42, 0.4)), rgba(15, 23, 42, 0.9);
+  --description-border: 1px dashed rgba(148, 163, 184, 0.55);
+  --link-bg: rgba(15, 23, 42, 0.9);
+  --link-bg-hover: rgba(15, 23, 42, 0.96);
+  --link-shadow: 0 10px 20px rgba(15, 23, 42, 0.55);
+  --link-shadow-hover: 0 16px 30px rgba(15, 23, 42, 0.85);
+  --link-border-hover: rgba(248, 250, 252, 0.9);
+  --footer-border: rgba(148, 163, 184, 0.5);
+  --closing-color: #e5e7eb;
+  --link-tint-bg: rgba(15, 23, 42, 0.95);
 }
 
 *,
@@ -24,7 +71,7 @@ body {
   padding: 0;
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+  background: var(--bg-body);
   color: var(--text-main);
 }
 
@@ -43,16 +90,11 @@ body {
 .card {
   width: 100%;
   max-width: 520px;
-  background: linear-gradient(
-      135deg,
-      rgba(51, 65, 85, 0.3),
-      rgba(15, 23, 42, 0.95)
-    ),
-    var(--bg-card);
+  background: var(--card-gradient);
   border-radius: var(--radius-xl);
   padding: 24px 20px 20px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -90,7 +132,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+  box-shadow: var(--logo-shadow);
 }
 
 .logo {
@@ -98,7 +140,7 @@ body {
   height: 100%;
   border-radius: 26px;
   object-fit: cover;
-  background: #020617;
+  background: var(--logo-bg);
 }
 
 .title-block h1 {
@@ -133,13 +175,8 @@ body {
   color: var(--text-muted);
   border-radius: 20px;
   padding: 14px 14px 12px;
-  background: radial-gradient(
-      circle at top left,
-      rgba(236, 252, 203, 0.15),
-      rgba(15, 23, 42, 0.4)
-    ),
-    rgba(15, 23, 42, 0.9);
-  border: 1px dashed rgba(148, 163, 184, 0.55);
+  background: var(--description-bg);
+  border: var(--description-border);
   margin-bottom: 18px;
 }
 
@@ -159,7 +196,7 @@ body {
 
 .closing {
   font-weight: 500;
-  color: #e5e7eb;
+  color: var(--closing-color);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -217,9 +254,9 @@ body {
   border-radius: 18px;
   text-decoration: none;
   color: var(--text-main);
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--link-bg);
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.55);
+  box-shadow: var(--link-shadow);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast),
     border-color var(--transition-fast), background var(--transition-fast);
 }
@@ -227,14 +264,14 @@ body {
 .link-button:hover,
 .link-button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.85);
-  border-color: rgba(248, 250, 252, 0.9);
-  background: rgba(15, 23, 42, 0.96);
+  box-shadow: var(--link-shadow-hover);
+  border-color: var(--link-border-hover);
+  background: var(--link-bg-hover);
 }
 
 .link-button:active {
   transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.8);
+  box-shadow: var(--link-shadow);
 }
 
 .link-button .label {
@@ -254,7 +291,7 @@ body {
       transparent 55%
     ),
     radial-gradient(circle at 110% 120%, rgba(244, 63, 94, 0.6), transparent 55%),
-    rgba(15, 23, 42, 0.95);
+    var(--link-tint-bg);
 }
 
 .link-button.instagram {
@@ -264,7 +301,7 @@ body {
       transparent 55%
     ),
     radial-gradient(circle at 110% 100%, rgba(236, 72, 153, 0.45), transparent 55%),
-    rgba(15, 23, 42, 0.95);
+    var(--link-tint-bg);
 }
 
 .link-button.facebook {
@@ -274,14 +311,14 @@ body {
       transparent 55%
     ),
     radial-gradient(circle at 110% 120%, rgba(37, 99, 235, 0.4), transparent 55%),
-    rgba(15, 23, 42, 0.95);
+    var(--link-tint-bg);
 }
 
 .footer {
   text-align: center;
   font-size: 0.7rem;
   color: var(--text-muted);
-  border-top: 1px dashed rgba(148, 163, 184, 0.5);
+  border-top: 1px dashed var(--footer-border);
   padding-top: 10px;
   margin-top: 4px;
 }
@@ -305,4 +342,69 @@ body {
   }
 }
 
+/* ========== Dark mode toggle (mobile + desktop) ========== */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast), color var(--transition-fast);
+}
 
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: scale(1.06);
+  box-shadow: var(--link-shadow-hover);
+  outline: none;
+}
+
+.theme-toggle:active {
+  transform: scale(0.98);
+}
+
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .theme-toggle {
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .theme-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+}
